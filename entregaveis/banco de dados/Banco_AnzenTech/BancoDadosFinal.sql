@@ -1,5 +1,5 @@
 /*
-Grupo 2 - AnzenTech
+SPRINT 1 Grupo 2 - AnzenTech 
 Gabriel Figueiredo
 Kauã Hideaki
 Miguel Vargas
@@ -7,6 +7,14 @@ Patrick Scaglia
 Paulo Henrique
 Pedro Gabriel
 Thiago Prado
+-----------------------------------------
+SPRINT 2 Grupo 3 - AnzenTech 
+Flávio Sandri Caputo
+Kauã Hideaki 
+Nicollas Martins
+Pedro Nunes 
+Pietro Giuliani
+Zanee Lopes
 */
 
 -- Criando e selecionando o banco de dados
