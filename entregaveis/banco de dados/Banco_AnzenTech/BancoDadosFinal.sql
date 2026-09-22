@@ -17,6 +17,8 @@ Pietro Giuliani
 Zanee Lopes
 */
 
+-- SPRINT 1
+
 -- Criando e selecionando o banco de dados
 CREATE DATABASE tabelasGLP;
 USE tabelasGLP;
@@ -151,3 +153,16 @@ SELECT * FROM leituraSensor WHERE situacao = 'atenção';
 SELECT * FROM leituraSensor WHERE ppm > 1000;
 -- Select como um texto descritivo
 SELECT concat('O sensor ', idsensor, ' captou um ppm de ', ppm, ', na data de', dataHora, ', e sua situação atual é ', situacao) AS Leitura FROM leiturasensor;
+
+-- SPRINT 2
+
+-- TABELA 4
+-- tabela de estabelecimentos
+create table estabelecimento(
+idEstabelecimento int primary key auto_increment,
+nome varchar(45),
+segmento varchar(45),
+numeroFunc int,
+cnpj char(14),
+endereco varchar(90)
+);
