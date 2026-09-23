@@ -155,14 +155,57 @@ SELECT * FROM leituraSensor WHERE ppm > 1000;
 SELECT concat('O sensor ', idsensor, ' captou um ppm de ', ppm, ', na data de', dataHora, ', e sua situação atual é ', situacao) AS Leitura FROM leiturasensor;
 
 -- SPRINT 2
-
+CREATE DATABASE sprint2TabelasGLP;
+USE sprint2TabelasGLP;
 -- TABELA 4
--- tabela de estabelecimentos
-create table estabelecimento(
-idEstabelecimento int primary key auto_increment,
-nome varchar(45),
-segmento varchar(45),
-numeroFunc int,
-cnpj char(14),
-endereco varchar(90)
+-- tabela de estabelecimento
+CREATE TABLE Estabelecimento (
+    idEstabelecimento INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(45) NOT NULL,
+    segmento VARCHAR(45) NOT NULL,
+    numeroFunc INT,
+    cnpj CHAR(14) NOT NULL,
+    endereco VARCHAR(90) NOT NULL
 );
+
+-- tabela Cadastro
+CREATE TABLE Cadastro (
+    idCadastro INT AUTO_INCREMENT PRIMARY KEY,
+    estabelecimento VARCHAR(50) NOT NULL,
+    responsavel VARCHAR(40) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    cidade VARCHAR(40) NOT NULL,
+    dataCadastro DATE NOT NULL,
+    situacaoMonitoramento VARCHAR(20) NOT NULL,
+    fkEstabelecimento INT NOT NULL,
+    CONSTRAINT fk_Cadastro_Estabelecimento
+        FOREIGN KEY (fkEstabelecimento)
+        REFERENCES Estabelecimento(idEstabelecimento)
+);
+-- tabela Sensor
+CREATE TABLE Sensor (
+    idSensor INT AUTO_INCREMENT PRIMARY KEY,
+    clienteEmpresa VARCHAR(50) NOT NULL,
+    modeloSensor VARCHAR(30) NOT NULL,
+    localInstalacao VARCHAR(50) NOT NULL,
+    dataInstalacao DATE NOT NULL,
+    limiteAlerta DECIMAL(5,2) NOT NULL,
+    statusSensor VARCHAR(20) NOT NULL,
+    ultimaManutencao DATE
+    -- pensei em adicionar: 
+    -- CONSTRAINT fk_Sensor_Estabelecimento
+    --    FOREIGN KEY (fkEstabelecimento)
+    --    REFERENCES Estabelecimento(idEstabelecimento)
+);
+-- tabela Leitura Sensor
+CREATE TABLE LeituraSensor (
+    idLeitura INT AUTO_INCREMENT PRIMARY KEY,
+    ppm DECIMAL(6,2) NOT NULL,
+    dataHora DATETIME NOT NULL,
+    situacao VARCHAR(20) NOT NULL,
+    Sensor_idSensor INT NOT NULL,
+    CONSTRAINT fk_LeituraSensor_Sensor
+        FOREIGN KEY (Sensor_idSensor)
+        REFERENCES Sensor(idSensor)
+);
+
