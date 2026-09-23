@@ -1,4 +1,12 @@
-# Anzen Tech - Sistema de Monitoramento e Detecção de Vazamento de Gás GLP
+# Anzen Tech 安全テク - Sistema de Monitoramento e Detecção de Vazamento de Gás GLP
+
+##Colaboradores
+- Pedro Nunes Pereira
+- Zanee Lopes Pereira
+- Flávio Sandri Caputo
+- Kauã Hideaki Siratsuti
+- Nicollas Martins Candido
+- Pietro Giuliani da Silva
 
 ### Tecnologias Utilizadas
 - **Hardware & Embarcados:** Arduino UNO, Sensor MQ-2, C/C++ (Arduino).
